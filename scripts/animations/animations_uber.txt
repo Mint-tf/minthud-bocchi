@@ -1,0 +1,27 @@
+event HudMedicCharged
+{
+	
+	Animate ChargeLabel							Alpha 		"255" 								Linear 	0.0 0.01
+	
+	Animate ChargeLabel							FgColor 	"0 255 100 255" 					Spline 	0.0 0.075
+	Animate ChargeLabel						FgColor     "128 255 178 255"                   Spline  0.2 0.075
+	
+	Animate ChargeMeter 						FgColor 	"0 255 100 255" 					Spline 	0.0 0.075
+	Animate ChargeMeter							FgColor     "128 255 178 255"                   Spline  0.2 0.075
+	
+	RunEvent HudMedicChargedLoop				0.6
+}
+
+event HudMedicChargedLoop
+{
+	RunEvent HudMedicCharged 					0.0
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 					0.0
+	StopEvent HudMedicChargedLoop 				0.0
+	
+	Animate	ChargeLabel						FgColor		"Ubercharge"						Linear	0.0 0.0001
+	Animate	ChargeMeter 						FgColor		"Ubercharge"						Linear 	0.0 0.0001
+}
